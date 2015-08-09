@@ -106,6 +106,7 @@ for subject in subjects:
     # with the rule of future data.
     # Here we use left filter compatible with this constraint. 
     raw._data[picks] = lfilter(b,a,raw._data[picks])
-    raw.to_data_frame()
+    raw.df = raw.to_data_frame(index = None)
+    raw.df.to_csv('raw_filtered.csv', float_format='%.5f')
     
     
